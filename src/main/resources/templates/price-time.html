@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>王者荣耀价格设置</title>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="col-md-12">
+    <div class="order-detail">
+        <div class="tab-content" id="firstDiv" style="display: block;">
+            <div style="padding:10px;">
+                <form action="" method="post" name="dataForm" id="saveQuotePriceInfoFrom">
+
+
+                    <div id="grading" style="float:left;  width:85%;  height:100%;">
+                        <table class="table-init">
+                            <thead>
+                            <tr class="header">
+                                <td width="230px">段位</td>
+                                <td width="130px">安卓QQ-编辑价格（元）</td>
+                                <td width="130px">安卓微信-只读价格（元）</td>
+                                <td width="130px">苹果QQ-只读价格（元）</td>
+                                <td width="130px">苹果微信-只读价格（元）</td>
+                                <td width="90px">时间（时）</td>
+                            </tr>
+                            </thead><thead>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id1" class="id" type="hidden">
+                            <input id="name1" class="name" type="hidden">
+                            <input id="parent1" class="parent" type="hidden">
+                            <input id="intervalValue1" class="intervalValue" type="hidden">
+                            <input id="starNum1" class="starNum" type="hidden">
+                            <input id="serverMultiplier1" class="serverMultiplier" type="hidden">
+                            <input id="levelName1" class="levelName" type="hidden">
+
+                            <td><input id="price1" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time1" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id1').val())">保存</button>
+                        </tr>
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id2" class="id" type="hidden">
+                            <input id="name2" class="name" type="hidden">
+                            <input id="parent2" class="parent" type="hidden">
+                            <input id="intervalValue2" class="intervalValue" type="hidden">
+                            <input id="starNum2" class="starNum" type="hidden">
+                            <input id="serverMultiplier2" class="serverMultiplier" type="hidden">
+                            <input id="levelName2" class="levelName" type="hidden">
+
+                            <td><input id="price2" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time2" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id2').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id3" class="id" type="hidden">
+                            <input id="name3" class="name" type="hidden">
+                            <input id="parent3" class="parent" type="hidden">
+                            <input id="intervalValue3" class="intervalValue" type="hidden">
+                            <input id="starNum3" class="starNum" type="hidden">
+                            <input id="serverMultiplier3" class="serverMultiplier" type="hidden">
+                            <input id="levelName3" class="levelName" type="hidden">
+
+                            <td><input id="price3" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time3" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id3').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id4" class="id" type="hidden">
+                            <input id="name4" class="name" type="hidden">
+                            <input id="parent4" class="parent" type="hidden">
+                            <input id="intervalValue4" class="intervalValue" type="hidden">
+                            <input id="starNum4" class="starNum" type="hidden">
+                            <input id="serverMultiplier4" class="serverMultiplier" type="hidden">
+                            <input id="levelName4" class="levelName" type="hidden">
+
+                            <td><input id="price4" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time4" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id4').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id5" class="id" type="hidden">
+                            <input id="name5" class="name" type="hidden">
+                            <input id="parent5" class="parent" type="hidden">
+                            <input id="intervalValue5" class="intervalValue" type="hidden">
+                            <input id="starNum5" class="starNum" type="hidden">
+                            <input id="serverMultiplier5" class="serverMultiplier" type="hidden">
+                            <input id="levelName5" class="levelName" type="hidden">
+
+                            <td><input id="price5" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time5" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id5').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id6" class="id" type="hidden">
+                            <input id="name6" class="name" type="hidden">
+                            <input id="parent6" class="parent" type="hidden">
+                            <input id="intervalValue6" class="intervalValue" type="hidden">
+                            <input id="starNum6" class="starNum" type="hidden">
+                            <input id="serverMultiplier6" class="serverMultiplier" type="hidden">
+                            <input id="levelName6" class="levelName" type="hidden">
+
+                            <td><input id="price6" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time6" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id6').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id7" class="id" type="hidden">
+                            <input id="name7" class="name" type="hidden">
+                            <input id="parent7" class="parent" type="hidden">
+                            <input id="intervalValue7" class="intervalValue" type="hidden">
+                            <input id="starNum7" class="starNum" type="hidden">
+                            <input id="serverMultiplier7" class="serverMultiplier" type="hidden">
+                            <input id="levelName7" class="levelName" type="hidden">
+
+                            <td><input id="price7" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time7" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id7').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id8" class="id" type="hidden">
+                            <input id="name8" class="name" type="hidden">
+                            <input id="parent8" class="parent" type="hidden">
+                            <input id="intervalValue8" class="intervalValue" type="hidden">
+                            <input id="starNum8" class="starNum" type="hidden">
+                            <input id="serverMultiplier8" class="serverMultiplier" type="hidden">
+                            <input id="levelName8" class="levelName" type="hidden">
+
+                            <td><input id="price8" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time8" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id8').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id9" class="id" type="hidden">
+                            <input id="name9" class="name" type="hidden">
+                            <input id="parent9" class="parent" type="hidden">
+                            <input id="intervalValue9" class="intervalValue" type="hidden">
+                            <input id="starNum9" class="starNum" type="hidden">
+                            <input id="serverMultiplier9" class="serverMultiplier" type="hidden">
+                            <input id="levelName9" class="levelName" type="hidden">
+
+                            <td><input id="price9" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time9" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id9').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id10" class="id" type="hidden">
+                            <input id="name10" class="name" type="hidden">
+                            <input id="parent10" class="parent" type="hidden">
+                            <input id="intervalValue10" class="intervalValue" type="hidden">
+                            <input id="starNum10" class="starNum" type="hidden">
+                            <input id="serverMultiplier10" class="serverMultiplier" type="hidden">
+                            <input id="levelName10" class="levelName" type="hidden">
+
+                            <td><input id="price10" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time10" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id10').val())">保存</button>
+                        </tr>
+
+                        <!--11到20-->
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id11" class="id" type="hidden">
+                            <input id="name11" class="name" type="hidden">
+                            <input id="parent11" class="parent" type="hidden">
+                            <input id="intervalValue11" class="intervalValue" type="hidden">
+                            <input id="starNum11" class="starNum" type="hidden">
+                            <input id="serverMultiplier11" class="serverMultiplier" type="hidden">
+                            <input id="levelName11" class="levelName" type="hidden">
+
+                            <td><input id="price11" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time11" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id11').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id12" class="id" type="hidden">
+                            <input id="name12" class="name" type="hidden">
+                            <input id="parent12" class="parent" type="hidden">
+                            <input id="intervalValue12" class="intervalValue" type="hidden">
+                            <input id="starNum12" class="starNum" type="hidden">
+                            <input id="serverMultiplier12" class="serverMultiplier" type="hidden">
+                            <input id="levelName12" class="levelName" type="hidden">
+
+                            <td><input id="price12" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time12" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id12').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id13" class="id" type="hidden">
+                            <input id="name13" class="name" type="hidden">
+                            <input id="parent13" class="parent" type="hidden">
+                            <input id="intervalValue13" class="intervalValue" type="hidden">
+                            <input id="starNum13" class="starNum" type="hidden">
+                            <input id="serverMultiplier13" class="serverMultiplier" type="hidden">
+                            <input id="levelName13" class="levelName" type="hidden">
+
+                            <td><input id="price13" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time13" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id13').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id14" class="id" type="hidden">
+                            <input id="name14" class="name" type="hidden">
+                            <input id="parent14" class="parent" type="hidden">
+                            <input id="intervalValue14" class="intervalValue" type="hidden">
+                            <input id="starNum14" class="starNum" type="hidden">
+                            <input id="serverMultiplier14" class="serverMultiplier" type="hidden">
+                            <input id="levelName14" class="levelName" type="hidden">
+
+                            <td><input id="price14" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time14" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id14').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id15" class="id" type="hidden">
+                            <input id="name15" class="name" type="hidden">
+                            <input id="parent15" class="parent" type="hidden">
+                            <input id="intervalValue15" class="intervalValue" type="hidden">
+                            <input id="starNum15" class="starNum" type="hidden">
+                            <input id="serverMultiplier15" class="serverMultiplier" type="hidden">
+                            <input id="levelName15" class="levelName" type="hidden">
+
+                            <td><input id="price15" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time15" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id15').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id16" class="id" type="hidden">
+                            <input id="name16" class="name" type="hidden">
+                            <input id="parent16" class="parent" type="hidden">
+                            <input id="intervalValue16" class="intervalValue" type="hidden">
+                            <input id="starNum16" class="starNum" type="hidden">
+                            <input id="serverMultiplier16" class="serverMultiplier" type="hidden">
+                            <input id="levelName16" class="levelName" type="hidden">
+
+                            <td><input id="price16" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time16" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id16').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id17" class="id" type="hidden">
+                            <input id="name17" class="name" type="hidden">
+                            <input id="parent17" class="parent" type="hidden">
+                            <input id="intervalValue17" class="intervalValue" type="hidden">
+                            <input id="starNum17" class="starNum" type="hidden">
+                            <input id="serverMultiplier17" class="serverMultiplier" type="hidden">
+                            <input id="levelName17" class="levelName" type="hidden">
+
+                            <td><input id="price17" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time17" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id17').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id18" class="id" type="hidden">
+                            <input id="name18" class="name" type="hidden">
+                            <input id="parent18" class="parent" type="hidden">
+                            <input id="intervalValue18" class="intervalValue" type="hidden">
+                            <input id="starNum18" class="starNum" type="hidden">
+                            <input id="serverMultiplier18" class="serverMultiplier" type="hidden">
+                            <input id="levelName18" class="levelName" type="hidden">
+
+                            <td><input id="price18" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time18" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id18').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id19" class="id" type="hidden">
+                            <input id="name19" class="name" type="hidden">
+                            <input id="parent19" class="parent" type="hidden">
+                            <input id="intervalValue19" class="intervalValue" type="hidden">
+                            <input id="starNum19" class="starNum" type="hidden">
+                            <input id="serverMultiplier19" class="serverMultiplier" type="hidden">
+                            <input id="levelName19" class="levelName" type="hidden">
+
+                            <td><input id="price19" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time19" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id19').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id20" class="id" type="hidden">
+                            <input id="name20" class="name" type="hidden">
+                            <input id="parent20" class="parent" type="hidden">
+                            <input id="intervalValue20" class="intervalValue" type="hidden">
+                            <input id="starNum20" class="starNum" type="hidden">
+                            <input id="serverMultiplier20" class="serverMultiplier" type="hidden">
+                            <input id="levelName20" class="levelName" type="hidden">
+
+                            <td><input id="price20" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time20" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id20').val())">保存</button>
+                        </tr>
+
+                        <!--21到30-->
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id21" class="id" type="hidden">
+                            <input id="name21" class="name" type="hidden">
+                            <input id="parent21" class="parent" type="hidden">
+                            <input id="intervalValue21" class="intervalValue" type="hidden">
+                            <input id="starNum21" class="starNum" type="hidden">
+                            <input id="serverMultiplier21" class="serverMultiplier" type="hidden">
+                            <input id="levelName21" class="levelName" type="hidden">
+
+                            <td><input id="price21" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time21" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id21').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id22" class="id" type="hidden">
+                            <input id="name22" class="name" type="hidden">
+                            <input id="parent22" class="parent" type="hidden">
+                            <input id="intervalValue22" class="intervalValue" type="hidden">
+                            <input id="starNum22" class="starNum" type="hidden">
+                            <input id="serverMultiplier22" class="serverMultiplier" type="hidden">
+                            <input id="levelName22" class="levelName" type="hidden">
+
+                            <td><input id="price22" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time22" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id22').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id23" class="id" type="hidden">
+                            <input id="name23" class="name" type="hidden">
+                            <input id="parent23" class="parent" type="hidden">
+                            <input id="intervalValue23" class="intervalValue" type="hidden">
+                            <input id="starNum23" class="starNum" type="hidden">
+                            <input id="serverMultiplier23" class="serverMultiplier" type="hidden">
+                            <input id="levelName23" class="levelName" type="hidden">
+
+                            <td><input id="price23" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time23" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id23').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id24" class="id" type="hidden">
+                            <input id="name24" class="name" type="hidden">
+                            <input id="parent24" class="parent" type="hidden">
+                            <input id="intervalValue24" class="intervalValue" type="hidden">
+                            <input id="starNum24" class="starNum" type="hidden">
+                            <input id="serverMultiplier24" class="serverMultiplier" type="hidden">
+                            <input id="levelName24" class="levelName" type="hidden">
+
+                            <td><input id="price24" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time24" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id24').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id25" class="id" type="hidden">
+                            <input id="name25" class="name" type="hidden">
+                            <input id="parent25" class="parent" type="hidden">
+                            <input id="intervalValue25" class="intervalValue" type="hidden">
+                            <input id="starNum25" class="starNum" type="hidden">
+                            <input id="serverMultiplier25" class="serverMultiplier" type="hidden">
+                            <input id="levelName25" class="levelName" type="hidden">
+
+                            <td><input id="price25" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time25" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id25').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id26" class="id" type="hidden">
+                            <input id="name26" class="name" type="hidden">
+                            <input id="parent26" class="parent" type="hidden">
+                            <input id="intervalValue26" class="intervalValue" type="hidden">
+                            <input id="starNum26" class="starNum" type="hidden">
+                            <input id="serverMultiplier26" class="serverMultiplier" type="hidden">
+                            <input id="levelName26" class="levelName" type="hidden">
+
+                            <td><input id="price26" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time26" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id26').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id27" class="id" type="hidden">
+                            <input id="name27" class="name" type="hidden">
+                            <input id="parent27" class="parent" type="hidden">
+                            <input id="intervalValue27" class="intervalValue" type="hidden">
+                            <input id="starNum27" class="starNum" type="hidden">
+                            <input id="serverMultiplier27" class="serverMultiplier" type="hidden">
+                            <input id="levelName27" class="levelName" type="hidden">
+
+                            <td><input id="price27" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time27" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id27').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id28" class="id" type="hidden">
+                            <input id="name28" class="name" type="hidden">
+                            <input id="parent28" class="parent" type="hidden">
+                            <input id="intervalValue28" class="intervalValue" type="hidden">
+                            <input id="starNum28" class="starNum" type="hidden">
+                            <input id="serverMultiplier28" class="serverMultiplier" type="hidden">
+                            <input id="levelName28" class="levelName" type="hidden">
+
+                            <td><input id="price28" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time28" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id28').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id29" class="id" type="hidden">
+                            <input id="name29" class="name" type="hidden">
+                            <input id="parent29" class="parent" type="hidden">
+                            <input id="intervalValue29" class="intervalValue" type="hidden">
+                            <input id="starNum29" class="starNum" type="hidden">
+                            <input id="serverMultiplier29" class="serverMultiplier" type="hidden">
+                            <input id="levelName29" class="levelName" type="hidden">
+
+                            <td><input id="price29" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time29" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id29').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id30" class="id" type="hidden">
+                            <input id="name30" class="name" type="hidden">
+                            <input id="parent30" class="parent" type="hidden">
+                            <input id="intervalValue30" class="intervalValue" type="hidden">
+                            <input id="starNum30" class="starNum" type="hidden">
+                            <input id="serverMultiplier30" class="serverMultiplier" type="hidden">
+                            <input id="levelName30" class="levelName" type="hidden">
+
+                            <td><input id="price30" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time30" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id30').val())">保存</button>
+                        </tr>
+
+                        <!--30到40-->
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id31" class="id" type="hidden">
+                            <input id="name31" class="name" type="hidden">
+                            <input id="parent31" class="parent" type="hidden">
+                            <input id="intervalValue31" class="intervalValue" type="hidden">
+                            <input id="starNum31" class="starNum" type="hidden">
+                            <input id="serverMultiplier31" class="serverMultiplier" type="hidden">
+                            <input id="levelName31" class="levelName" type="hidden">
+
+                            <td><input id="price31" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time31" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id31').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id32" class="id" type="hidden">
+                            <input id="name32" class="name" type="hidden">
+                            <input id="parent32" class="parent" type="hidden">
+                            <input id="intervalValue32" class="intervalValue" type="hidden">
+                            <input id="starNum32" class="starNum" type="hidden">
+                            <input id="serverMultiplier32" class="serverMultiplier" type="hidden">
+                            <input id="levelName32" class="levelName" type="hidden">
+
+                            <td><input id="price32" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time32" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id32').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id33" class="id" type="hidden">
+                            <input id="name33" class="name" type="hidden">
+                            <input id="parent33" class="parent" type="hidden">
+                            <input id="intervalValue33" class="intervalValue" type="hidden">
+                            <input id="starNum33" class="starNum" type="hidden">
+                            <input id="serverMultiplier33" class="serverMultiplier" type="hidden">
+                            <input id="levelName33" class="levelName" type="hidden">
+
+                            <td><input id="price33" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time33" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id33').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id34" class="id" type="hidden">
+                            <input id="name34" class="name" type="hidden">
+                            <input id="parent34" class="parent" type="hidden">
+                            <input id="intervalValue34" class="intervalValue" type="hidden">
+                            <input id="starNum34" class="starNum" type="hidden">
+                            <input id="serverMultiplier34" class="serverMultiplier" type="hidden">
+                            <input id="levelName34" class="levelName" type="hidden">
+
+                            <td><input id="price34" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time34" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id34').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id35" class="id" type="hidden">
+                            <input id="name35" class="name" type="hidden">
+                            <input id="parent35" class="parent" type="hidden">
+                            <input id="intervalValue35" class="intervalValue" type="hidden">
+                            <input id="starNum35" class="starNum" type="hidden">
+                            <input id="serverMultiplier35" class="serverMultiplier" type="hidden">
+                            <input id="levelName35" class="levelName" type="hidden">
+
+                            <td><input id="price35" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time35" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id35').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id36" class="id" type="hidden">
+                            <input id="name36" class="name" type="hidden">
+                            <input id="parent36" class="parent" type="hidden">
+                            <input id="intervalValue36" class="intervalValue" type="hidden">
+                            <input id="starNum36" class="starNum" type="hidden">
+                            <input id="serverMultiplier36" class="serverMultiplier" type="hidden">
+                            <input id="levelName36" class="levelName" type="hidden">
+
+                            <td><input id="price36" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time36" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id36').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id37" class="id" type="hidden">
+                            <input id="name37" class="name" type="hidden">
+                            <input id="parent37" class="parent" type="hidden">
+                            <input id="intervalValue37" class="intervalValue" type="hidden">
+                            <input id="starNum37" class="starNum" type="hidden">
+                            <input id="serverMultiplier37" class="serverMultiplier" type="hidden">
+                            <input id="levelName37" class="levelName" type="hidden">
+
+                            <td><input id="price37" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time37" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id37').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id38" class="id" type="hidden">
+                            <input id="name38" class="name" type="hidden">
+                            <input id="parent38" class="parent" type="hidden">
+                            <input id="intervalValue38" class="intervalValue" type="hidden">
+                            <input id="starNum38" class="starNum" type="hidden">
+                            <input id="serverMultiplier38" class="serverMultiplier" type="hidden">
+                            <input id="levelName38" class="levelName" type="hidden">
+
+                            <td><input id="price38" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time38" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id38').val())">保存</button>
+                        </tr>
+
+                        <tr>
+                            <td  class="dunWei">null</td>
+
+                            <input id="id39" class="id" type="hidden">
+                            <input id="name39" class="name" type="hidden">
+                            <input id="parent39" class="parent" type="hidden">
+                            <input id="intervalValue39" class="intervalValue" type="hidden">
+                            <input id="starNum39" class="starNum" type="hidden">
+                            <input id="serverMultiplier39" class="serverMultiplier" type="hidden">
+                            <input id="levelName39" class="levelName" type="hidden">
+
+                            <td><input id="price39" class="androidQq" type="text" value=""></td>
+                            <td><input class="androidWx" type="text" readonly="true"></td>
+                            <td><input class="iphoneQq" type="text" readonly="true"></td>
+                            <td><input class="iphoneWx" type="text" readonly="true"></td>
+                            <td><input id="time39" type="text" class="hour"></td>
+                            <td><button type="button" onclick="savePrice($('#id39').val())">保存</button>
+                        </tr>
+
+                        </thead></table>
+                    </div>
+
+                    <div style="float:left ;  width:45%; height:50%;padding-left: 40px;">
+                        <div>---------------孙氏网游专营店---------------</div>
+                        <div>---------------孙氏网游专营店---------------</div>
+                        <div>---------------孙氏网游专营店---------------</div>
+                        <div>---------------孙氏网游专营店---------------</div>
+                        <div>---------------孙氏网游专营店---------------</div>
+                        <div>---------------孙氏网游专营店---------------</div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var androidWX;
+    var iphoneQQ;
+    var iphoneWX;
+
+    // 获取区服加价接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002//gloryServer/list" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (result) {
+
+                if (result.msg == "成功") {
+
+                    // 区服加成比例
+                    androidWX = result.data[1].serverAddition;
+                    iphoneQQ = result.data[2].serverAddition;
+                    iphoneWX = result.data[3].serverAddition;
+                }
+
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    })
+
+    // 获取价格设置接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/quoted/list" ,//url
+            async : true,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (result) {
+
+
+                if (result.msg == "成功") {
+
+                    for(var i=0;i<result.data.length;i++){
+
+                        var id = result.data[i].id;
+                        var name = result.data[i].name;
+                        var price = result.data[i].price;
+                        var parent = result.data[i].parent;
+                        var time = result.data[i].time;
+                        var intervalValue = result.data[i].intervalValue;
+                        var starNum = result.data[i].starNum;
+                        var serverMultiplier = result.data[i].serverMultiplier;
+                        var levelName = result.data[i].levelName;
+
+                        var html = "";
+                        html += levelName;
+                        html += price;
+                        html += time;
+
+                        html += id;
+                        html += name;
+                        html += parent;
+                        html += intervalValue;
+                        html += starNum;
+                        html += serverMultiplier;
+
+                        $(".dunWei").get(i).innerHTML = levelName;
+                        $(".androidQq").get(i).value = price;
+                        $(".androidWx").get(i).value = keepTwoDecimal(price*androidWX);
+                        $(".iphoneQq").get(i).value = keepTwoDecimal(price*iphoneQQ);
+                        $(".iphoneWx").get(i).value = keepTwoDecimal(price*iphoneWX);
+                        $(".hour").get(i).value = time;
+
+                        $(".id").get(i).value = id;
+                        $(".name").get(i).value = name;
+                        $(".parent").get(i).value = parent;
+                        $(".intervalValue").get(i).value = intervalValue;
+                        $(".starNum").get(i).value = starNum;
+                        $(".serverMultiplier").get(i).value = serverMultiplier;
+                        $(".levelName").get(i).value = levelName;
+
+                    }
+                }
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    })
+
+    //四舍五入保留2位小数（若第二位小数为0，则保留一位小数）
+    function keepTwoDecimal(num) {
+        var result = parseFloat(num);
+        if (isNaN(result)) {
+            alert('传递参数错误，请检查！');
+            return false;
+        }
+        result = Math.round(num * 100) / 100;
+        return result;
+    };
+
+    //更新时间价格的接口
+    function savePrice(id) {
+
+        var priceData;
+
+        if (id == $('#id1').val()) {
+            priceData =  {"id":id,
+                "name":$('#name1').val(),
+                "price":$("#price1").val(),
+                "parent":$('#parent1').val(),
+                "time":$('#time1').val(),
+                "intervalValue":$('#intervalValue1').val(),
+                "starNum":$('#starNum1').val(),
+                "serverMultiplier":$('#serverMultiplier1').val(),
+                "levelName":$('#levelName1').val()};
+        } else if (id == $('#id2').val()) {
+            priceData =  {"id":id,
+                "name":$('#name2').val(),
+                "price":$("#price2").val(),
+                "parent":$('#parent2').val(),
+                "time":$('#time2').val(),
+                "intervalValue":$('#intervalValue2').val(),
+                "starNum":$('#starNum2').val(),
+                "serverMultiplier":$('#serverMultiplier2').val(),
+                "levelName":$('#levelName2').val()};
+        } else if (id == $('#id3').val()) {
+            priceData =  {"id":id,
+                "name":$('#name3').val(),
+                "price":$("#price3").val(),
+                "parent":$('#parent3').val(),
+                "time":$('#time3').val(),
+                "intervalValue":$('#intervalValue3').val(),
+                "starNum":$('#starNum3').val(),
+                "serverMultiplier":$('#serverMultiplier3').val(),
+                "levelName":$('#levelName3').val()};
+        } else if (id == $('#id4').val()) {
+            priceData =  {"id":id,
+                "name":$('#name4').val(),
+                "price":$("#price4").val(),
+                "parent":$('#parent4').val(),
+                "time":$('#time4').val(),
+                "intervalValue":$('#intervalValue4').val(),
+                "starNum":$('#starNum4').val(),
+                "serverMultiplier":$('#serverMultiplier4').val(),
+                "levelName":$('#levelName4').val()};
+        } else if (id == $('#id5').val()) {
+            priceData =  {"id":id,
+                "name":$('#name5').val(),
+                "price":$("#price5").val(),
+                "parent":$('#parent5').val(),
+                "time":$('#time5').val(),
+                "intervalValue":$('#intervalValue5').val(),
+                "starNum":$('#starNum5').val(),
+                "serverMultiplier":$('#serverMultiplier5').val(),
+                "levelName":$('#levelName5').val()};
+        } else if (id == $('#id6').val()) {
+            priceData =  {"id":id,
+                "name":$('#name6').val(),
+                "price":$("#price6").val(),
+                "parent":$('#parent6').val(),
+                "time":$('#time6').val(),
+                "intervalValue":$('#intervalValue6').val(),
+                "starNum":$('#starNum6').val(),
+                "serverMultiplier":$('#serverMultiplier6').val(),
+                "levelName":$('#levelName6').val()};
+        } else if (id == $('#id7').val()) {
+            priceData =  {"id":id,
+                "name":$('#name7').val(),
+                "price":$("#price7").val(),
+                "parent":$('#parent7').val(),
+                "time":$('#time7').val(),
+                "intervalValue":$('#intervalValue7').val(),
+                "starNum":$('#starNum7').val(),
+                "serverMultiplier":$('#serverMultiplier7').val(),
+                "levelName":$('#levelName7').val()};
+        } else if (id == $('#id8').val()) {
+            priceData =  {"id":id,
+                "name":$('#name8').val(),
+                "price":$("#price8").val(),
+                "parent":$('#parent8').val(),
+                "time":$('#time8').val(),
+                "intervalValue":$('#intervalValue8').val(),
+                "starNum":$('#starNum8').val(),
+                "serverMultiplier":$('#serverMultiplier8').val(),
+                "levelName":$('#levelName8').val()};
+        } else if (id == $('#id9').val()) {
+            priceData =  {"id":id,
+                "name":$('#name9').val(),
+                "price":$("#price9").val(),
+                "parent":$('#parent9').val(),
+                "time":$('#time9').val(),
+                "intervalValue":$('#intervalValue9').val(),
+                "starNum":$('#starNum9').val(),
+                "serverMultiplier":$('#serverMultiplier9').val(),
+                "levelName":$('#levelName9').val()};
+        } else if (id == $('#id10').val()) {
+            priceData =  {"id":id,
+                "name":$('#name10').val(),
+                "price":$("#price10").val(),
+                "parent":$('#parent10').val(),
+                "time":$('#time10').val(),
+                "intervalValue":$('#intervalValue10').val(),
+                "starNum":$('#starNum10').val(),
+                "serverMultiplier":$('#serverMultiplier10').val(),
+                "levelName":$('#levelName10').val()};
+        } else if (id == $('#id11').val()) {
+            priceData =  {"id":id,
+                "name":$('#name11').val(),
+                "price":$("#price11").val(),
+                "parent":$('#parent11').val(),
+                "time":$('#time11').val(),
+                "intervalValue":$('#intervalValue11').val(),
+                "starNum":$('#starNum11').val(),
+                "serverMultiplier":$('#serverMultiplier11').val(),
+                "levelName":$('#levelName11').val()};
+        } else if (id == $('#id12').val()) {
+            priceData =  {"id":id,
+                "name":$('#name12').val(),
+                "price":$("#price12").val(),
+                "parent":$('#parent12').val(),
+                "time":$('#time12').val(),
+                "intervalValue":$('#intervalValue12').val(),
+                "starNum":$('#starNum12').val(),
+                "serverMultiplier":$('#serverMultiplier12').val(),
+                "levelName":$('#levelName12').val()};
+        } else if (id == $('#id13').val()) {
+            priceData =  {"id":id,
+                "name":$('#name13').val(),
+                "price":$("#price13").val(),
+                "parent":$('#parent13').val(),
+                "time":$('#time13').val(),
+                "intervalValue":$('#intervalValue13').val(),
+                "starNum":$('#starNum13').val(),
+                "serverMultiplier":$('#serverMultiplier13').val(),
+                "levelName":$('#levelName13').val()};
+        } else if (id == $('#id14').val()) {
+            priceData =  {"id":id,
+                "name":$('#name14').val(),
+                "price":$("#price14").val(),
+                "parent":$('#parent14').val(),
+                "time":$('#time14').val(),
+                "intervalValue":$('#intervalValue14').val(),
+                "starNum":$('#starNum14').val(),
+                "serverMultiplier":$('#serverMultiplier14').val(),
+                "levelName":$('#levelName14').val()};
+        } else if (id == $('#id15').val()) {
+            priceData =  {"id":id,
+                "name":$('#name15').val(),
+                "price":$("#price15").val(),
+                "parent":$('#parent15').val(),
+                "time":$('#time15').val(),
+                "intervalValue":$('#intervalValue15').val(),
+                "starNum":$('#starNum15').val(),
+                "serverMultiplier":$('#serverMultiplier15').val(),
+                "levelName":$('#levelName15').val()};
+        } else if (id == $('#id16').val()) {
+            priceData =  {"id":id,
+                "name":$('#name16').val(),
+                "price":$("#price16").val(),
+                "parent":$('#parent16').val(),
+                "time":$('#time16').val(),
+                "intervalValue":$('#intervalValue16').val(),
+                "starNum":$('#starNum16').val(),
+                "serverMultiplier":$('#serverMultiplier16').val(),
+                "levelName":$('#levelName16').val()};
+        } else if (id == $('#id17').val()) {
+            priceData =  {"id":id,
+                "name":$('#name17').val(),
+                "price":$("#price17").val(),
+                "parent":$('#parent17').val(),
+                "time":$('#time17').val(),
+                "intervalValue":$('#intervalValue17').val(),
+                "starNum":$('#starNum17').val(),
+                "serverMultiplier":$('#serverMultiplier17').val(),
+                "levelName":$('#levelName17').val()};
+        } else if (id == $('#id18').val()) {
+            priceData =  {"id":id,
+                "name":$('#name18').val(),
+                "price":$("#price18").val(),
+                "parent":$('#parent18').val(),
+                "time":$('#time18').val(),
+                "intervalValue":$('#intervalValue18').val(),
+                "starNum":$('#starNum18').val(),
+                "serverMultiplier":$('#serverMultiplier18').val(),
+                "levelName":$('#levelName18').val()};
+        } else if (id == $('#id19').val()) {
+            priceData =  {"id":id,
+                "name":$('#name19').val(),
+                "price":$("#price19").val(),
+                "parent":$('#parent19').val(),
+                "time":$('#time19').val(),
+                "intervalValue":$('#intervalValue19').val(),
+                "starNum":$('#starNum19').val(),
+                "serverMultiplier":$('#serverMultiplier19').val(),
+                "levelName":$('#levelName19').val()};
+        } else if (id == $('#id20').val()) {
+            priceData =  {"id":id,
+                "name":$('#name20').val(),
+                "price":$("#price20").val(),
+                "parent":$('#parent20').val(),
+                "time":$('#time20').val(),
+                "intervalValue":$('#intervalValue20').val(),
+                "starNum":$('#starNum20').val(),
+                "serverMultiplier":$('#serverMultiplier20').val(),
+                "levelName":$('#levelName20').val()};
+        } else if (id == $('#id21').val()) {
+            priceData =  {"id":id,
+                "name":$('#name21').val(),
+                "price":$("#price21").val(),
+                "parent":$('#parent21').val(),
+                "time":$('#time21').val(),
+                "intervalValue":$('#intervalValue21').val(),
+                "starNum":$('#starNum21').val(),
+                "serverMultiplier":$('#serverMultiplier21').val(),
+                "levelName":$('#levelName21').val()};
+        } else if (id == $('#id22').val()) {
+            priceData =  {"id":id,
+                "name":$('#name22').val(),
+                "price":$("#price22").val(),
+                "parent":$('#parent22').val(),
+                "time":$('#time22').val(),
+                "intervalValue":$('#intervalValue22').val(),
+                "starNum":$('#starNum22').val(),
+                "serverMultiplier":$('#serverMultiplier22').val(),
+                "levelName":$('#levelName22').val()};
+        } else if (id == $('#id23').val()) {
+            priceData =  {"id":id,
+                "name":$('#name23').val(),
+                "price":$("#price23").val(),
+                "parent":$('#parent23').val(),
+                "time":$('#time23').val(),
+                "intervalValue":$('#intervalValue23').val(),
+                "starNum":$('#starNum23').val(),
+                "serverMultiplier":$('#serverMultiplier23').val(),
+                "levelName":$('#levelName23').val()};
+        } else if (id == $('#id24').val()) {
+            priceData =  {"id":id,
+                "name":$('#name24').val(),
+                "price":$("#price24").val(),
+                "parent":$('#parent24').val(),
+                "time":$('#time24').val(),
+                "intervalValue":$('#intervalValue24').val(),
+                "starNum":$('#starNum24').val(),
+                "serverMultiplier":$('#serverMultiplier24').val(),
+                "levelName":$('#levelName24').val()};
+        } else if (id == $('#id25').val()) {
+            priceData =  {"id":id,
+                "name":$('#name25').val(),
+                "price":$("#price25").val(),
+                "parent":$('#parent25').val(),
+                "time":$('#time25').val(),
+                "intervalValue":$('#intervalValue25').val(),
+                "starNum":$('#starNum25').val(),
+                "serverMultiplier":$('#serverMultiplier25').val(),
+                "levelName":$('#levelName25').val()};
+        } else if (id == $('#id26').val()) {
+            priceData =  {"id":id,
+                "name":$('#name26').val(),
+                "price":$("#price26").val(),
+                "parent":$('#parent26').val(),
+                "time":$('#time26').val(),
+                "intervalValue":$('#intervalValue26').val(),
+                "starNum":$('#starNum26').val(),
+                "serverMultiplier":$('#serverMultiplier26').val(),
+                "levelName":$('#levelName26').val()};
+        } else if (id == $('#id27').val()) {
+            priceData =  {"id":id,
+                "name":$('#name27').val(),
+                "price":$("#price27").val(),
+                "parent":$('#parent27').val(),
+                "time":$('#time27').val(),
+                "intervalValue":$('#intervalValue27').val(),
+                "starNum":$('#starNum27').val(),
+                "serverMultiplier":$('#serverMultiplier27').val(),
+                "levelName":$('#levelName27').val()};
+        } else if (id == $('#id28').val()) {
+            priceData =  {"id":id,
+                "name":$('#name28').val(),
+                "price":$("#price28").val(),
+                "parent":$('#parent28').val(),
+                "time":$('#time28').val(),
+                "intervalValue":$('#intervalValue28').val(),
+                "starNum":$('#starNum28').val(),
+                "serverMultiplier":$('#serverMultiplier28').val(),
+                "levelName":$('#levelName28').val()};
+        } else if (id == $('#id29').val()) {
+            priceData =  {"id":id,
+                "name":$('#name29').val(),
+                "price":$("#price29").val(),
+                "parent":$('#parent29').val(),
+                "time":$('#time29').val(),
+                "intervalValue":$('#intervalValue29').val(),
+                "starNum":$('#starNum29').val(),
+                "serverMultiplier":$('#serverMultiplier29').val(),
+                "levelName":$('#levelName29').val()};
+        } else if (id == $('#id30').val()) {
+            priceData =  {"id":id,
+                "name":$('#name30').val(),
+                "price":$("#price30").val(),
+                "parent":$('#parent30').val(),
+                "time":$('#time30').val(),
+                "intervalValue":$('#intervalValue30').val(),
+                "starNum":$('#starNum30').val(),
+                "serverMultiplier":$('#serverMultiplier30').val(),
+                "levelName":$('#levelName30').val()};
+        } else if (id == $('#id31').val()) {
+            priceData =  {"id":id,
+                "name":$('#name31').val(),
+                "price":$("#price31").val(),
+                "parent":$('#parent31').val(),
+                "time":$('#time31').val(),
+                "intervalValue":$('#intervalValue31').val(),
+                "starNum":$('#starNum31').val(),
+                "serverMultiplier":$('#serverMultiplier31').val(),
+                "levelName":$('#levelName31').val()};
+        } else if (id == $('#id32').val()) {
+            priceData =  {"id":id,
+                "name":$('#name32').val(),
+                "price":$("#price32").val(),
+                "parent":$('#parent32').val(),
+                "time":$('#time32').val(),
+                "intervalValue":$('#intervalValue32').val(),
+                "starNum":$('#starNum32').val(),
+                "serverMultiplier":$('#serverMultiplier32').val(),
+                "levelName":$('#levelName32').val()};
+        } else if (id == $('#id33').val()) {
+            priceData =  {"id":id,
+                "name":$('#name33').val(),
+                "price":$("#price33").val(),
+                "parent":$('#parent33').val(),
+                "time":$('#time33').val(),
+                "intervalValue":$('#intervalValue33').val(),
+                "starNum":$('#starNum33').val(),
+                "serverMultiplier":$('#serverMultiplier33').val(),
+                "levelName":$('#levelName33').val()};
+        } else if (id == $('#id34').val()) {
+            priceData =  {"id":id,
+                "name":$('#name34').val(),
+                "price":$("#price34").val(),
+                "parent":$('#parent34').val(),
+                "time":$('#time34').val(),
+                "intervalValue":$('#intervalValue34').val(),
+                "starNum":$('#starNum34').val(),
+                "serverMultiplier":$('#serverMultiplier34').val(),
+                "levelName":$('#levelName34').val()};
+        } else if (id == $('#id35').val()) {
+            priceData =  {"id":id,
+                "name":$('#name35').val(),
+                "price":$("#price35").val(),
+                "parent":$('#parent35').val(),
+                "time":$('#time35').val(),
+                "intervalValue":$('#intervalValue35').val(),
+                "starNum":$('#starNum35').val(),
+                "serverMultiplier":$('#serverMultiplier35').val(),
+                "levelName":$('#levelName35').val()};
+        } else if (id == $('#id36').val()) {
+            priceData =  {"id":id,
+                "name":$('#name36').val(),
+                "price":$("#price36").val(),
+                "parent":$('#parent36').val(),
+                "time":$('#time36').val(),
+                "intervalValue":$('#intervalValue36').val(),
+                "starNum":$('#starNum36').val(),
+                "serverMultiplier":$('#serverMultiplier36').val(),
+                "levelName":$('#levelName36').val()};
+        } else if (id == $('#id37').val()) {
+            priceData =  {"id":id,
+                "name":$('#name37').val(),
+                "price":$("#price37").val(),
+                "parent":$('#parent37').val(),
+                "time":$('#time37').val(),
+                "intervalValue":$('#intervalValue37').val(),
+                "starNum":$('#starNum37').val(),
+                "serverMultiplier":$('#serverMultiplier37').val(),
+                "levelName":$('#levelName37').val()};
+        } else if (id == $('#id38').val()) {
+            priceData =  {"id":id,
+                "name":$('#name38').val(),
+                "price":$("#price38").val(),
+                "parent":$('#parent38').val(),
+                "time":$('#time38').val(),
+                "intervalValue":$('#intervalValue38').val(),
+                "starNum":$('#starNum38').val(),
+                "serverMultiplier":$('#serverMultiplier38').val(),
+                "levelName":$('#levelName38').val()};
+        } else if (id == $('#id39').val()) {
+            priceData =  {"id":id,
+                "name":$('#name39').val(),
+                "price":$("#price39").val(),
+                "parent":$('#parent39').val(),
+                "time":$('#time39').val(),
+                "intervalValue":$('#intervalValue39').val(),
+                "starNum":$('#starNum39').val(),
+                "serverMultiplier":$('#serverMultiplier39').val(),
+                "levelName":$('#levelName39').val()};
+        }
+
+        console.log(JSON.stringify(priceData));
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/quoted/update" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(priceData),
+            success: function (result) {
+
+                if (result.msg == "成功") {
+                    console.log("保存成功！");
+                };
+            },
+            error : function() {
+                alert("价格保存失败！");
+
+            }
+
+        });
+
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+

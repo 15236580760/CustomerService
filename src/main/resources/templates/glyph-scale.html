@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>王者荣耀铭文比例设置</title>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // 获取铭文比例设置接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/inscription/list" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (result) {
+                if (result.msg == "成功") {
+
+
+                    for(var i=0;i<result.data.length;i++){
+
+                        var id = result.data[i].id;
+                        var etc = result.data[i].etc;
+                        var addition = result.data[i].addition;
+                        var inscriptionNum = result.data[i].inscriptionNum;
+
+                        var html = "";
+                        html += id;
+                        html += etc;
+                        html += addition;
+                        html += inscriptionNum;
+
+                        $(".id").get(i).value = id;
+                        $(".etc").get(i).value = etc;
+                        $(".addition").get(i).value = addition;
+                        $(".inscriptionNum").get(i).value = inscriptionNum;
+                    }
+                }
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    })
+
+    
+    function saveBtn(id) {
+
+        var glyphData;
+
+
+        if (id == $('#id1').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc1').val(),
+                "addition":$("#addition1").val(),
+                "inscriptionNum":$('#inscriptionNum1').val()};
+        } else if (id == $('#id2').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc2').val(),
+                "addition":$("#addition2").val(),
+                "inscriptionNum":$('#inscriptionNum2').val()};
+        } else if (id == $('#id3').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc3').val(),
+                "addition":$("#addition3").val(),
+                "inscriptionNum":$('#inscriptionNum3').val()};
+        } else if (id == $('#id4').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc4').val(),
+                "addition":$("#addition4").val(),
+                "inscriptionNum":$('#inscriptionNum4').val()};
+        } else if (id == $('#id5').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc5').val(),
+                "addition":$("#addition5").val(),
+                "inscriptionNum":$('#inscriptionNum5').val()};
+        } else if (id == $('#id6').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc6').val(),
+                "addition":$("#addition6").val(),
+                "inscriptionNum":$('#inscriptionNum6').val()};
+        } else if (id == $('#id7').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc7').val(),
+                "addition":$("#addition7").val(),
+                "inscriptionNum":$('#inscriptionNum7').val()};
+        } else if (id == $('#id8').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc8').val(),
+                "addition":$("#addition8").val(),
+                "inscriptionNum":$('#inscriptionNum8').val()};
+        } else if (id == $('#id9').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc9').val(),
+                "addition":$("#addition9").val(),
+                "inscriptionNum":$('#inscriptionNum9').val()};
+        } else if (id == $('#id10').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc10').val(),
+                "addition":$("#addition10").val(),
+                "inscriptionNum":$('#inscriptionNum10').val()};
+        } else if (id == $('#id11').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc11').val(),
+                "addition":$("#addition11").val(),
+                "inscriptionNum":$('#inscriptionNum11').val()};
+        } else if (id == $('#id12').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc12').val(),
+                "addition":$("#addition12").val(),
+                "inscriptionNum":$('#inscriptionNum12').val()};
+        } else if (id == $('#id13').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc13').val(),
+                "addition":$("#addition13").val(),
+                "inscriptionNum":$('#inscriptionNum13').val()};
+        } else if (id == $('#id14').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc14').val(),
+                "addition":$("#addition14").val(),
+                "inscriptionNum":$('#inscriptionNum14').val()};
+        } else if (id == $('#id15').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc15').val(),
+                "addition":$("#addition15").val(),
+                "inscriptionNum":$('#inscriptionNum15').val()};
+        } else if (id == $('#id16').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc16').val(),
+                "addition":$("#addition16").val(),
+                "inscriptionNum":$('#inscriptionNum16').val()};
+        } else if (id == $('#id17').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc17').val(),
+                "addition":$("#addition17").val(),
+                "inscriptionNum":$('#inscriptionNum17').val()};
+        } else if (id == $('#id18').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc18').val(),
+                "addition":$("#addition18").val(),
+                "inscriptionNum":$('#inscriptionNum18').val()};
+        } else if (id == $('#id19').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc19').val(),
+                "addition":$("#addition19").val(),
+                "inscriptionNum":$('#inscriptionNum19').val()};
+        } else if (id == $('#id20').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc20').val(),
+                "addition":$("#addition20").val(),
+                "inscriptionNum":$('#inscriptionNum20').val()};
+        } else if (id == $('#id21').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc21').val(),
+                "addition":$("#addition21").val(),
+                "inscriptionNum":$('#inscriptionNum21').val()};
+        } else if (id == $('#id22').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc22').val(),
+                "addition":$("#addition22").val(),
+                "inscriptionNum":$('#inscriptionNum22').val()};
+        } else if (id == $('#id23').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc23').val(),
+                "addition":$("#addition23").val(),
+                "inscriptionNum":$('#inscriptionNum23').val()};
+        } else if (id == $('#id24').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc24').val(),
+                "addition":$("#addition24").val(),
+                "inscriptionNum":$('#inscriptionNum24').val()};
+        } else if (id == $('#id25').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc25').val(),
+                "addition":$("#addition25").val(),
+                "inscriptionNum":$('#inscriptionNum25').val()};
+        } else if (id == $('#id26').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc26').val(),
+                "addition":$("#addition26").val(),
+                "inscriptionNum":$('#inscriptionNum26').val()};
+        } else if (id == $('#id27').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc27').val(),
+                "addition":$("#addition27").val(),
+                "inscriptionNum":$('#inscriptionNum27').val()};
+        } else if (id == $('#id28').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc28').val(),
+                "addition":$("#addition28").val(),
+                "inscriptionNum":$('#inscriptionNum28').val()};
+        } else if (id == $('#id29').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc29').val(),
+                "addition":$("#addition29").val(),
+                "inscriptionNum":$('#inscriptionNum29').val()};
+        } else if (id == $('#id30').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc30').val(),
+                "addition":$("#addition30").val(),
+                "inscriptionNum":$('#inscriptionNum30').val()};
+        } else if (id == $('#id31').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc31').val(),
+                "addition":$("#addition31").val(),
+                "inscriptionNum":$('#inscriptionNum31').val()};
+        } else if (id == $('#id32').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc32').val(),
+                "addition":$("#addition32").val(),
+                "inscriptionNum":$('#inscriptionNum32').val()};
+        } else if (id == $('#id33').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc33').val(),
+                "addition":$("#addition33").val(),
+                "inscriptionNum":$('#inscriptionNum33').val()};
+        } else if (id == $('#id34').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc34').val(),
+                "addition":$("#addition34").val(),
+                "inscriptionNum":$('#inscriptionNum34').val()};
+        } else if (id == $('#id35').val()) {
+            glyphData =  {"id":id,
+                "etc":$('#etc35').val(),
+                "addition":$("#addition35").val(),
+                "inscriptionNum":$('#inscriptionNum35').val()};
+        }
+
+        console.log(JSON.stringify(glyphData));
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/inscription/update" ,//url
+            contentType : "application/json",
+            data: $('#saveQuoteEpigraphDiscountFrom').serialize(),
+            data: JSON.stringify(glyphData),
+            success: function (result) {
+
+                console.log(result);//打印服务端返回的数据
+                if (result.msg == "成功") {
+                    console.log("保存成功");
+                };
+            },
+            error : function() {
+                alert("保存失败！");
+
+            }
+
+        });
+
+    }
+</script>
+
+<div class="tab-content" id="fourthDiv">
+    <form action="" method="post" name="dataFormFour" id="saveQuoteEpigraphDiscountFrom">
+
+        <div style="float:left;width:20%">
+            <div class="mingwenTitle">铭文折扣</div>
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>青铜-铭文等级-加价比例%(例如：1.03 = 3%，1.10 = 10%)</p>
+                    </tr>
+                    <tr>
+                        <td>1-50</td>
+                        <input id="id1" class="id" type="hidden">
+                        <input id="etc1" class="etc" type="hidden">
+                        <input id="inscriptionNum1" class="inscriptionNum" type="hidden">
+                        <td><input style="width: 50px" id="addition1" type="text" class="addition"></td>
+                        <td><button type="button" onclick="saveBtn($('#id1').val())">保存</button></td>
+
+                        <td class="">51-100</td>
+                        <input id="id2" class="id" type="hidden">
+                        <input id="etc2" class="etc" type="hidden">
+                        <input id="inscriptionNum2" class="inscriptionNum" type="hidden">
+                        <td><input style="width: 50px" id="addition2" type="text" class="addition"></td>
+                        <td><button type="button" onclick="saveBtn($('#id2').val())">保存</button></td>
+
+                        <td class="">101-120</td>
+                        <input id="id3" class="id" type="hidden">
+                        <input id="etc3" class="etc" type="hidden">
+                        <input id="inscriptionNum3" class="inscriptionNum" type="hidden">
+                        <td><input style="width: 50px" id="addition3" type="text" class="addition"></td>
+                        <td><button type="button" onclick="saveBtn($('#id3').val())">保存</button></td>
+
+                        <td class="">121-140</td>
+                        <input id="id4" class="id" type="hidden">
+                        <input id="etc4" class="etc" type="hidden">
+                        <input id="inscriptionNum4" class="inscriptionNum" type="hidden">
+                        <td><input style="width: 50px" id="addition4" type="text" class="addition"></td>
+                        <td><button type="button" onclick="saveBtn($('#id4').val())">保存</button></td>
+
+                        <td class="">141-150</td>
+                        <input id="id5" class="id" type="hidden">
+                        <input id="etc5" class="etc" type="hidden">
+                        <input id="inscriptionNum5" class="inscriptionNum" type="hidden">
+                        <td><input style="width: 50px" id="addition5" type="text" class="addition"></td>
+                        <td><button type="button" onclick="saveBtn($('#id5').val())">保存</button></td>
+                    </tr>
+
+                    </thead></table>
+            </div>
+
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>白银-铭文等级-加价比例%</p>
+                    </tr>
+                    </thead><thead>
+
+                <tr>
+                    <td>1-50</td>
+                    <input id="id6" class="id" type="hidden">
+                    <input id="etc6" class="etc" type="hidden">
+                    <input id="inscriptionNum6" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition6" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id6').val())">保存</button></td>
+
+                    <td class="">51-100</td>
+                    <input id="id7" class="id" type="hidden">
+                    <input id="etc7" class="etc" type="hidden">
+                    <input id="inscriptionNum7" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition7" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id7').val())">保存</button></td>
+
+                    <td class="">101-120</td>
+                    <input id="id8" class="id" type="hidden">
+                    <input id="etc8" class="etc" type="hidden">
+                    <input id="inscriptionNum8" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition8" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id8').val())">保存</button></td>
+
+                    <td class="">121-140</td>
+                    <input id="id9" class="id" type="hidden">
+                    <input id="etc9" class="etc" type="hidden">
+                    <input id="inscriptionNum9" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition9" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id9').val())">保存</button></td>
+
+                    <td class="">141-150</td>
+                    <input id="id10" class="id" type="hidden">
+                    <input id="etc10" class="etc" type="hidden">
+                    <input id="inscriptionNum10" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition10" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id10').val())">保存</button></td>
+                </tr>
+
+                </thead></table>
+            </div>
+
+
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>黄金-铭文等级-加价比例%</p>
+                    </tr>
+                    </thead><thead>
+
+                <tr>
+                    <td>1-50</td>
+                    <input id="id11" class="id" type="hidden">
+                    <input id="etc11" class="etc" type="hidden">
+                    <input id="inscriptionNum11" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition11" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id11').val())">保存</button></td>
+
+                    <td class="">51-100</td>
+                    <input id="id12" class="id" type="hidden">
+                    <input id="etc12" class="etc" type="hidden">
+                    <input id="inscriptionNum12" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition12" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id12').val())">保存</button></td>
+
+                    <td class="">101-120</td>
+                    <input id="id13" class="id" type="hidden">
+                    <input id="etc13" class="etc" type="hidden">
+                    <input id="inscriptionNum13" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition13" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id13').val())">保存</button></td>
+
+                    <td class="">121-140</td>
+                    <input id="id14" class="id" type="hidden">
+                    <input id="etc14" class="etc" type="hidden">
+                    <input id="inscriptionNum14" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition14" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id14').val())">保存</button></td>
+
+                    <td class="">141-150</td>
+                    <input id="id15" class="id" type="hidden">
+                    <input id="etc15" class="etc" type="hidden">
+                    <input id="inscriptionNum15" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition15" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id15').val())">保存</button></td>
+                </tr>
+
+                </thead></table>
+            </div>
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>铂金-铭文等级-加价比例%</p>
+                    </tr>
+                    </thead><thead>
+
+                <tr>
+                    <td>1-50</td>
+                    <input id="id16" class="id" type="hidden">
+                    <input id="etc16" class="etc" type="hidden">
+                    <input id="inscriptionNum16" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition16" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id16').val())">保存</button></td>
+
+                    <td class="">51-100</td>
+                    <input id="id17" class="id" type="hidden">
+                    <input id="etc17" class="etc" type="hidden">
+                    <input id="inscriptionNum17" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition17" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id17').val())">保存</button></td>
+
+                    <td class="">101-120</td>
+                    <input id="id18" class="id" type="hidden">
+                    <input id="etc18" class="etc" type="hidden">
+                    <input id="inscriptionNum18" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition18" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id18').val())">保存</button></td>
+
+                    <td class="">121-140</td>
+                    <input id="id19" class="id" type="hidden">
+                    <input id="etc19" class="etc" type="hidden">
+                    <input id="inscriptionNum19" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition19" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id19').val())">保存</button></td>
+
+                    <td class="">141-150</td>
+                    <input id="id20" class="id" type="hidden">
+                    <input id="etc20" class="etc" type="hidden">
+                    <input id="inscriptionNum20" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition20" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id20').val())">保存</button></td>
+                </tr>
+
+                </thead></table>
+            </div>
+
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>砖石-铭文等级-加价比例%</p>
+                    </tr>
+                    </thead><thead>
+
+                <tr>
+                    <td>1-50</td>
+                    <input id="id21" class="id" type="hidden">
+                    <input id="etc21" class="etc" type="hidden">
+                    <input id="inscriptionNum21" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition21" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id21').val())">保存</button></td>
+
+                    <td class="">51-100</td>
+                    <input id="id22" class="id" type="hidden">
+                    <input id="etc22" class="etc" type="hidden">
+                    <input id="inscriptionNum22" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition22" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id22').val())">保存</button></td>
+
+                    <td class="">101-120</td>
+                    <input id="id23" class="id" type="hidden">
+                    <input id="etc23" class="etc" type="hidden">
+                    <input id="inscriptionNum23" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition23" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id23').val())">保存</button></td>
+
+                    <td class="">121-140</td>
+                    <input id="id24" class="id" type="hidden">
+                    <input id="etc24" class="etc" type="hidden">
+                    <input id="inscriptionNum24" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition24" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id24').val())">保存</button></td>
+
+                    <td class="">141-150</td>
+                    <input id="id25" class="id" type="hidden">
+                    <input id="etc25" class="etc" type="hidden">
+                    <input id="inscriptionNum25" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition25" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id25').val())">保存</button></td>
+                </tr>
+
+                </thead></table>
+            </div>
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>星耀-铭文等级-加价比例%</p>
+                    </tr>
+                    </thead><thead>
+
+                <tr>
+                    <td>1-50</td>
+                    <input id="id26" class="id" type="hidden">
+                    <input id="etc26" class="etc" type="hidden">
+                    <input id="inscriptionNum26" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition26" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id26').val())">保存</button></td>
+
+                    <td class="">51-100</td>
+                    <input id="id27" class="id" type="hidden">
+                    <input id="etc27" class="etc" type="hidden">
+                    <input id="inscriptionNum27" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition27" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id27').val())">保存</button></td>
+
+                    <td class="">101-120</td>
+                    <input id="id28" class="id" type="hidden">
+                    <input id="etc28" class="etc" type="hidden">
+                    <input id="inscriptionNum28" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition28" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id28').val())">保存</button></td>
+
+                    <td class="">121-140</td>
+                    <input id="id29" class="id" type="hidden">
+                    <input id="etc29" class="etc" type="hidden">
+                    <input id="inscriptionNum29" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition29" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id29').val())">保存</button></td>
+
+                    <td class="">141-150</td>
+                    <input id="id30" class="id" type="hidden">
+                    <input id="etc30" class="etc" type="hidden">
+                    <input id="inscriptionNum30" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition30" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id30').val())">保存</button></td>
+                </tr>
+
+                </thead></table>
+            </div>
+
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <p>王者-铭文等级-加价比例%</p>
+                    </tr>
+                    </thead><thead>
+
+                <tr>
+                    <td>1-50</td>
+                    <input id="id31" class="id" type="hidden">
+                    <input id="etc31" class="etc" type="hidden">
+                    <input id="inscriptionNum31" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition31" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id31').val())">保存</button></td>
+
+                    <td class="">51-100</td>
+                    <input id="id32" class="id" type="hidden">
+                    <input id="etc32" class="etc" type="hidden">
+                    <input id="inscriptionNum32" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition32" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id32').val())">保存</button></td>
+
+                    <td class="">101-120</td>
+                    <input id="id33" class="id" type="hidden">
+                    <input id="etc33" class="etc" type="hidden">
+                    <input id="inscriptionNum33" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition33" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id33').val())">保存</button></td>
+
+                    <td class="">121-140</td>
+                    <input id="id34" class="id" type="hidden">
+                    <input id="etc34" class="etc" type="hidden">
+                    <input id="inscriptionNum34" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition34" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id34').val())">保存</button></td>
+
+                    <td class="">141-150</td>
+                    <input id="id35" class="id" type="hidden">
+                    <input id="etc35" class="etc" type="hidden">
+                    <input id="inscriptionNum35" class="inscriptionNum" type="hidden">
+                    <td><input style="width: 50px" id="addition35" type="text" class="addition"></td>
+                    <td><button type="button" onclick="saveBtn($('#id35').val())">保存</button></td>
+                </tr>
+
+                </thead></table>
+            </div>
+        </div>
+<!--        <div style="float:left ;  width:40%; height:50%;margin-top:60px;">-->
+<!--            <div class="bold mar20">铭文设置说明</div>-->
+<!--            <div class="markText">-->
+<!--                <p>1、订单代练时，根据初始段位进行加价比例</p>-->
+<!--                <p>例如：用户想从青铜3打到钻石1，铭文等级目前50，根据配置的基础价格， 代练价格为200；</p>-->
+<!--                <p>校验初始段位为：青铜段位，铭文等级50，规则为：青铜段位：铭文1-50加价5%，则最终代练价格为200+200*5%=210元 </p>-->
+<!--                <p>2、初始铭文加价比例为0，默认为不加价（按原价展示）</p>-->
+<!--                <p>3、折扣设置不允许输入小数点哦~</p>-->
+<!--                <p>4、所有折扣设置在计算时全部生效</p>-->
+<!--            </div>-->
+<!--            <div class="mar_t10">-->
+<!--                <button id="saveQuoteEpigraphDiscountBtn" class="aui-btn aui-btn-info" type="button" onclick="saveQuoteEpigraphDiscount()">保存</button>-->
+<!--            </div>-->
+<!--        </div>-->
+    </form>
+</div>
+
+</body>
+</html>

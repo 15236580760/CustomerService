@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>价格优惠设置</title>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+    // 获取优惠折扣接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/discount/list" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (result) {
+                if (result.msg == "成功") {
+
+                    for(var i=0;i<result.data.length;i++){
+
+                        var id = result.data[i].id;
+                        var priceRange = result.data[i].priceRange;
+                        var favourable = result.data[i].favourable;
+                        var gameName = result.data[i].gameName;
+
+                        var html = "";
+                        html += id;
+                        html += priceRange;
+                        html += favourable;
+                        html += gameName;
+
+                        $(".favorableId").get(i).value = id;
+                        $(".favorablePriceRange").get(i).value = priceRange;
+                        $(".favourable").get(i).value = favourable;
+                        $(".favorableGameName").get(i).value = gameName;
+                    }
+                }
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    })
+
+    //更新优化价格的接口
+    function saveFavorablePrice(id) {
+
+        var favorableData;
+
+        if (id == $('#id1').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId1').val(),
+                "favourable":$("#favourable1").val(),
+                "gameName":$('#gameId1').val()};
+        } else if (id == $('#id2').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId2').val(),
+                "favourable":$("#favourable2").val(),
+                "gameName":$('#gameId2').val()};
+        } else if (id == $('#id3').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId3').val(),
+                "favourable":$("#favourable3").val(),
+                "gameName":$('#gameId3').val()};
+        } else if (id == $('#id4').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId4').val(),
+                "favourable":$("#favourable4").val(),
+                "gameName":$('#gameId4').val()};
+        } else if (id == $('#id5').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId5').val(),
+                "favourable":$("#favourable5").val(),
+                "gameName":$('#gameId5').val()};
+        } else if (id == $('#id6').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId6').val(),
+                "favourable":$("#favourable6").val(),
+                "gameName":$('#gameId6').val()};
+        } else if (id == $('#id7').val()) {
+            favorableData =  {"id":id,
+                "priceRange":$('#rangeId7').val(),
+                "favourable":$("#favourable7").val(),
+                "gameName":$('#gameId7').val()};
+        }
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/discount/update" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(favorableData),
+            success: function (result) {
+
+                if (result.msg == "成功") {
+                    console.log("保存成功!");
+                };
+            },
+            error : function() {
+                alert("价格保存失败！");
+
+            }
+
+        });
+
+    }
+
+</script>
+
+
+<div class="tab-content" id="fourthDiv">
+    <form action="" method="post" name="dataFormFour" id="favorablePriceFrom">
+
+        <div style="float:left;width:50%">
+            <div class="mingwenTitle">优惠折扣</div>
+            <div class="mingwenBox">
+                <table class="table-init">
+                    <thead>
+                    <tr class="header">
+                        <td width="130px">价格阶段</td>
+                        <td width="130px">优化价格(单位：元)</td>
+                    </tr>
+                    <tr>
+                        <td class="">1元-20元</td>
+                        <input id="id1" class="favorableId" type="hidden">
+                        <input id="rangeId1" class="favorablePriceRange" type="hidden">
+                        <input id="gameId1" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable1" name="data1" type="text"  class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id1').val())">保存</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="">21元-50元</td>
+                        <input id="id2" class="favorableId" type="hidden">
+                        <input id="rangeId2" class="favorablePriceRange" type="hidden">
+                        <input id="gameId2" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable2" name="data2" type="text"  class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id2').val())">保存</button>
+                    </tr>
+
+                    <tr>
+                        <td class="">51元-100元</td>
+                        <input id="id3" class="favorableId" type="hidden">
+                        <input id="rangeId3" class="favorablePriceRange" type="hidden">
+                        <input id="gameId3" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable3" name="data3" type="text" class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id3').val())">保存</button>
+                    </tr>
+
+                    <tr>
+                        <td class="">101元-200元</td>
+                        <input id="id4" class="favorableId" type="hidden">
+                        <input id="rangeId4" class="favorablePriceRange" type="hidden">
+                        <input id="gameId4" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable4" name="data4" type="text" class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id4').val())">保存</button>
+                    </tr>
+
+                    <tr>
+                        <td class="">201元-500元</td>
+                        <input id="id5" class="favorableId" type="hidden">
+                        <input id="rangeId5" class="favorablePriceRange" type="hidden">
+                        <input id="gameId5" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable5" name="data5" type="text" class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id5').val())">保存</button>
+                    </tr>
+
+                    <tr>
+                        <td class="">501元-1000元</td>
+                        <input id="id6" class="favorableId" type="hidden">
+                        <input id="rangeId6" class="favorablePriceRange" type="hidden">
+                        <input id="gameId6" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable6" name="data6" type="text" class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id6').val())">保存</button>
+                    </tr>
+
+                    <tr>
+                        <td class="">1000元以上</td>
+                        <input id="id7" class="favorableId" type="hidden">
+                        <input id="rangeId7" class="favorablePriceRange" type="hidden">
+                        <input id="gameId7" class="favorableGameName" type="hidden">
+                        <td class=""><input id="favourable7" name="data7" type="text" class="favourable"></td>
+                        <td><button type="button" onclick="saveFavorablePrice($('#id7').val())">保存</button>
+                    </tr>
+                    </thead></table>
+            </div>
+
+        </div>
+        <div style="float:left ;  width:40%; height:50%;margin-top:60px;">
+            <div class="bold mar20">价格优惠说明</div>
+            <div class="markText">
+                <p>价格优惠时，根据价格阶段进行优惠</p>
+                <p>例如：报价为51<=x<=100，价格区间为51元到100之间，优惠价格为y元</p>
+                <p>最后结算价格则为x-y元 </p>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

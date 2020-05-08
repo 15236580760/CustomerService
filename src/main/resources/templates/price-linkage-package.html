@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>价格联动套餐设置页面</title>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+    // 获取区服加价接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002//gloryServer/list" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (result) {
+
+                if (result.msg == "成功") {
+
+                    // 区服加成比例
+                    $("#androidWX").val(result.data[1].serverAddition);
+                    $("#iphoneQQ").val(result.data[2].serverAddition);
+                    $("#iphoneWX").val(result.data[3].serverAddition);
+
+                    // 区服名称
+                    $("#azwxq").val(result.data[1].serverName);
+                    $("#pgqqq").val(result.data[2].serverName);
+                    $("#pgwxq").val(result.data[3].serverName);
+
+                }
+
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    })
+
+
+    // 获取套餐设置接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/combo/list" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (result) {
+
+                if (result.msg == "成功") {
+
+                    for(var i=0;i<result.data.length;i++){
+
+                        var id = result.data[i].id;
+                        var comboName = result.data[i].comboName;
+                        var comboAddition = result.data[i].comboAddition;
+
+                        var html = "";
+                        html += id;
+                        html += comboName;
+                        html += comboAddition;
+                        $(".packageId").get(i).value = id;
+                        $(".meal").get(i).value = comboName;
+                        $(".price").get(i).value = comboAddition;
+                    }
+
+                }
+
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    })
+
+    //更新区服加价的接口
+    function saveLinkagePrice(id) {
+
+        var linkageData;
+
+        if (id == 2) {
+            linkageData =  {"id":id,
+                "serverName":$("#azwxq").val(),
+                "serverAddition":$("#androidWX").val()};
+        } else if (id == 3) {
+            linkageData =  {"id":id,
+                "serverName":$("#pgqqq").val(),
+                "serverAddition":$("#iphoneQQ").val()};
+        } else if (id == 4) {
+            linkageData =  {"id":id,
+                "serverName":$("#pgwxq").val(),
+                "serverAddition":$("#iphoneWX").val()};
+        }
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/gloryServer/update" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(linkageData),
+            success: function (result) {
+
+                if (result.msg == "成功") {
+                    console.log("保存成功!");
+                };
+            },
+            error : function() {
+                alert("价格保存失败！");
+
+            }
+
+        });
+    }
+
+
+    //更新套餐的接口
+    function savaMealBtn(id) {
+
+        var mealData;
+
+        if (id == $('#id1').val()) {
+            mealData =  {"id":id,
+                "comboName":$("#mealId1").val(),
+                "comboAddition":$("#priceId1").val()};
+        } else if (id == $('#id2').val()) {
+            mealData =  {"id":id,
+                "comboName":$("#mealId2").val(),
+                "comboAddition":$("#priceId2").val()};
+        } else if (id == $('#id3').val()) {
+            mealData =  {"id":id,
+                "comboName":$("#mealId3").val(),
+                "comboAddition":$("#priceId3").val()};
+        } else if (id == $('#id4').val()) {
+            mealData =  {"id":id,
+                "comboName":$("#mealId4").val(),
+                "comboAddition":$("#priceId4").val()};
+        } else if (id == $('#id5').val()) {
+            mealData =  {"id":id,
+                "comboName":$("#mealId5").val(),
+                "comboAddition":$("#priceId5").val()};
+        } else if (id == $('#id6').val()) {
+            mealData =  {"id":id,
+                "comboName":$("#mealId6").val(),
+                "comboAddition":$("#priceId6").val()};
+        }
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30002/combo/update" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(mealData),
+            success: function (result) {
+
+                if (result.msg == "成功") {
+                    console.log("保存成功");
+                };
+            },
+            error : function() {
+                alert("价格保存失败！");
+
+            }
+
+        });
+    }
+
+
+</script>
+
+<form action="" method="post" name="dataForm" id="saveQuotePriceInfoFrom">
+
+    <div style="float:left ;  width:45%; height:50%;padding-left: 40px;">
+        <input id="quotePriceLinkageRowId" name="quotePriceLinkageRowId" type="hidden" value="534">
+        <div class="bold mar20">价格联动设置</div>
+        <div class="bold mar20">说明：输入安卓QQ价格，就会自动带出其他价格</div>
+        <div class=" mar_l20">安卓微信价格 = 安卓QQ价格 x
+            <input id="androidWX" type="text" value="">
+            <input id="azwxq" type="hidden">
+            <button type="button" onclick="saveLinkagePrice(2)">保存</button>
+        </div>
+        <div class=" mar_l20">苹果QQ价格   = 安卓QQ价格 x
+            <input id="iphoneQQ" type="text" value="">
+            <input id="pgqqq" type="hidden">
+            <button type="button" onclick="saveLinkagePrice(3)">保存</button>
+        </div>
+        <div class=" mar_l20">苹果微信价格 = 安卓QQ价格 x
+            <input id="iphoneWX" type="text" value="">
+            <input id="pgwxq" type="hidden">
+            <button type="button" onclick="saveLinkagePrice(4)">保存</button>
+        </div>
+        <br>
+        <hr>
+        <div class="bold mar20">套餐名称和特殊价格设置</div>
+        <div class=" mar_l20">
+            <input id="id1" class="packageId" type="hidden">
+            <input class=" meal" id="mealId1" type="text" maxlength="20"> = 普通价格 x
+            <input class="price" id="priceId1" type="text">
+            <button type="button" onclick="savaMealBtn($('#id1').val())">保存</button>
+        </div>
+        <div class=" mar_l20">
+            <input id="id2" class="packageId" type="hidden">
+            <input class=" meal" id="mealId2" type="text" maxlength="20"> = 普通价格 x
+            <input class="price" id="priceId2" type="text">
+            <button type="button" onclick="savaMealBtn($('#id2').val())">保存</button>
+        </div>
+        <div class=" mar_l20">
+            <input id="id3" class="packageId" type="hidden">
+            <input class=" meal" id="mealId3" type="text" maxlength="20"> = 普通价格 x
+            <input class="price" id="priceId3" type="text">
+            <button type="button" onclick="savaMealBtn($('#id3').val())">保存</button>
+        </div>
+        <div class=" mar_l20">
+            <input id="id4" class="packageId" type="hidden">
+            <input class=" meal" id="mealId4" type="text" maxlength="20"> = 普通价格 x
+            <input class="price" id="priceId4" type="text">
+            <button type="button" onclick="savaMealBtn($('#id4').val())">保存</button>
+        </div>
+        <div class=" mar_l20">
+            <input id="id5" class="packageId" type="hidden">
+            <input class=" meal" id="mealId5" type="text" maxlength="20"> = 普通价格 x
+            <input class="price" id="priceId5" type="text">
+            <button type="button" onclick="savaMealBtn($('#id5').val())">保存</button>
+        </div>
+        <div class=" mar_l20">
+            <input id="id6" class="packageId" type="hidden">
+            <input class=" meal" id="mealId6" type="text" maxlength="20"> = 普通价格 x
+            <input class="price" id="priceId6" type="text">
+            <button type="button" onclick="savaMealBtn($('#id6').val())">保存</button>
+        </div>
+
+    </div>
+
+
+</form>
+
+</body>
+</html>
