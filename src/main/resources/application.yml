@@ -6,4 +6,4 @@ spring:
 
 
 server:
-  port: 30003
+  port: 30004

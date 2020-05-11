@@ -14,91 +14,72 @@
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
     <legend>回复语编辑页面</legend>
 </fieldset>
-
-<div id="replyTree" class="demo-tree demo-tree-box" style="margin-left: 100px; height: 300px; float: left"></div>
-
-<div id="replyTree2" class="demo-tree demo-tree-box" style="margin-right: 200px; float:right">
-
-    <p align="center">快捷短语标题-内容表格</p>
-    <table class="layui-hide" id="treeTable"  lay-filter="treeTable"></table>
+<div>
+    <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked" onclick="insertRootData()">添加根节点数据</button>
+    <input type="text" id="rootDataId">
+    <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked" onclick="refresh()">刷新页面</button>
 
 </div>
+<div id="replyTree" class="demo-tree demo-tree-box" style="margin-left: 100px; height: 300px;"></div>
 
+<div style="float:left ;  width:45%; height:50%;padding-left: 40px;">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
 
+</div>
 
 <script src="../static/layui/layui.js"></script>
 
 <script>
 
-    // 获取快捷语 标题与内容接口数据
-    layui.use('table', function(){
-        var table = layui.table;
-
-        table.render({
-            elem: '#treeTable'
-            ,url:'http://39.100.147.44:30002/combo/list'
-            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
-            ,cols: [
-                [
-                {field:'id', width:80, title: 'ID', sort: true}
-                ,{field:'comboName', width:120, title: '标题'}
-                ,{field:'comboAddition', width:400, title: '内容', edit: 'text'}
-            ]
-            ]
-            ,page:true
-        });
-
-        //监听单元格编辑
-        table.on('edit(treeTable)', function(obj){
-            var value = obj.value //得到修改后的值
-                ,data = obj.data //得到所在行所有键值
-                ,field = obj.field; //得到字段
-
-            layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
-        });
-
-    });
-
-
+    function refresh() {
+        location.reload();
+    }
 
     // 获取树状流程图接口数据
-    layui.use(['tree', 'util'], function(){
-        var tree = layui.tree,
-            layer = layui.layer,
-            util = layui.util,
+    layui.use(['tree', 'util'], function() {
+        var tree = layui.tree
+            , layer = layui.layer
+            , util = layui.util;
 
-            // data = dataTree;
-
-            dataTree = [
-                {title: '顾客进门', id: 1 , field: "一般对应表字段名", children:[{title: '二级顾客进门', id: 11}]},
-                {title: '自动回复',id: 2, children:[{title: 'cf代练', id: 21, children:[{title: '快捷回复标题1', id: 211},{title: '快捷回复标题2', id: 212},{title: '快捷回复标题3', id: 213}]},
-                        {title: '抽水晶', id: 22, children:[{title: '快捷回复标题1', id: 221},{title: '快捷回复标题2', id: 222},{title: '快捷回复标题3', id: 223}]},
-                        {title: 'LOL代练', id: 23, children:[{title: '快捷回复标题1', id: 231},{title: '快捷回复标题2', id: 232},{title: '快捷回复标题3', id: 233}]}]},
-                {title: '修改密码',id: 3},
-                {title: '首次问候',id: 4},
-                {title: '用户管理',id: 5},
-                {title: '角色管理',id: 6},
-                {title: '报价',id: 7},
-                {title: '查看日志',id: 8},
-                {title: '导出日志',id: 9}];
-
-        //开启节点操作图标
-        tree.render({
-            id: 'treeId', //定义索引
-            elem: '#replyTree',
-            data: dataTree,
-            edit: ['add', 'update', 'del'], //操作节点的图标
-            click: function(obj){
-                // console.log(obj.data); //得到当前点击的节点数据
-                // console.log(obj.state); //得到当前节点的展开状态：open、close、normal
-                // console.log(obj.elem); //得到当前节点元素
-                //
-                // console.log(obj.data.children); //当前节点下是否有子节点
-
-                console.log(obj.data);
-                // layer.msg(JSON.stringify(obj.data));
+        $.ajax({
+            type: "post",
+            async:false,
+            dataType: 'json',
+            url: "http://39.100.147.44:30005/treemenu/getAllMenusJson",
+            xhrFields: {
+                withCredentials: false
             },
+            success:function(data){ // 获取数据成功
+                nodes=data.data;
+            },
+            error : function() {
+                alert("获取数据失败！");
 
+            }
+
+        });
+
+        //常规用法
+        tree.render({
+            elem: '#replyTree' //默认是点击节点可进行收缩
+            ,data: nodes,
+            id: 'id',//定义索引
+            spread: true, // 节点是否展开
+            edit: ['add', 'update', 'del'], //操作节点的图标
+            //node即为当前点击的节点数据,item就是被点击的a标签对象了
+            click: function (node,item) {
+
+            },
+            // 节点的curd操作
             operate: function (obj) {
                 var type = obj.type; //得到操作类型：add、edit、del
                 var data = obj.data; //得到当前节点的数据
@@ -106,43 +87,164 @@
 
                 //Ajax 操作
                 var id = data.id; //得到节点索引
-                if(type === 'add'){ //增加节点
-
-                    layer.msg("节点id:" + id);
-
-                    //返回 key 值
+                if (type === 'add') { //增加节点
 
                     return id;
-                } else if(type === 'update'){ //修改节点
+                } else if (type === 'update') { //修改节点
 
                     var updateData = elem.find('.layui-tree-txt').html();
+                    var saveData;
 
+                    // 新建节点数据
+                    if (typeof(data.name) == "undefined") {
+                        saveData = {
+                            "id": "", //后台自动生成id
+                            "url": "",
+                            "name": updateData,
+                            "parent": data.id,
+                            "icon": "",
+                            "checked": false,
+                            "children": data.children
+                        };
+                    } else { // 更新节点数据
+                        saveData = {
+                            "id": data.id,
+                            "url": "",
+                            "name": updateData,
+                            "parent": data.parent,
+                            "icon": "",
+                            "checked": false,
+                            "children": data.children
+                        };
 
-                    layer.msg("更新后的值:" + updateData);
-                    // console.log("更新后的值:" + updateData); //得到修改后的内容
-                } else if(type === 'del'){ //删除节点
+                    }
+                    // 添加或更新标题数据
+                    saveOnePrivilege(saveData);
 
-                    layer.msg("删除的节点id:" + id);
+                } else if (type === 'del') { //删除节点
 
-                };
+                    if (typeof(data.name) == "undefined") {
+                        //创建数据未提交，直接本地删除
 
+                    } else { // 删除数据库中的数据
+                        if (data.children.length == 0) { // 删除子节点数据
 
+                            // 删除树状标题对应短语数据
+                            var deleteDataByTypeId = {
+                                "id": "",
+                                "shortWord": "",
+                                "typeId": data.id,
+                            };
+                            deleteShortWordByTypeId(deleteDataByTypeId);
+
+                            // 删除标题数据
+                            var deleteData = {
+                                "id": data.id,
+                                "url": "",
+                                "name": "",
+                                "parent": "",
+                                "icon": "",
+                                "checked": false,
+                                "children": ""
+                            };
+                            deleteOnePrivilege(deleteData);
+
+                        } else { // 非子节点数据不删除
+                            layer.msg("请先删除子节点数据，再删除该条数据");
+                        }
+                    }
+                }
             }
-
         });
-
-        //可以重载所有基础参数
-        tree.reload('demoId', {
-            //新的参数
-        });
-
-
-
-
 
     });
 
 
+    //保存更新短语接口
+    function saveOnePrivilege(saveData) {
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30005/treemenu/saveOnePrivilege" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(saveData),
+            success: function (result) {
+
+                if (200 == result.code) {
+                    layer.msg("保存成功");
+                };
+            },
+            error : function() {
+                alert("保存失败");
+
+            }
+
+        });
+    }
+
+    //删除短语接口
+    function deleteOnePrivilege(deleteData) {
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30005/treemenu/deleteOnePrivilege" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(deleteData),
+            success: function (result) {
+
+                if (200 == result.code) {
+                    layer.msg("删除成功");
+                    location.reload();
+                };
+            },
+            error : function() {
+                alert("删除失败");
+
+            }
+
+        });
+    }
+
+    //删除短语接口
+    function deleteShortWordByTypeId(deleteDataByTypeId) {
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "http://39.100.147.44:30005/shortword/deleteShortWordByTypeId" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(deleteDataByTypeId),
+            success: function (result) {
+
+                if (200 == result.code) {
+                    // layer.msg("删除成功");
+
+                };
+            },
+            error : function() {
+                alert("删除失败");
+
+            }
+
+        });
+    }
+
+    // 添加根节点数据的方法
+    function insertRootData() {
+        var data = $(" #rootDataId ").val();
+        var rootData = {
+            "id": "", //后台自动生成id
+            "url": "",
+            "name": data,
+            "parent": "0", // 0代表根节点
+            "icon": "",
+            "checked": false,
+            "children": [] // 新生成根节点没有子节点
+        };
+        saveOnePrivilege(rootData);
+
+    }
 
 </script>
 

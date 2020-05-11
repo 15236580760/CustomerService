@@ -804,7 +804,7 @@
         $.ajax({
             type: "GET",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002//gloryServer/list" ,//url
+            url: "http://39.100.147.44:30005/gloryServer/list" ,//url
             async : false,//是否异步请求
             contentType : "application/json;charset=UTF-8",
             success: function (result) {
@@ -831,7 +831,7 @@
         $.ajax({
             type: "GET",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002/quoted/list" ,//url
+            url: "http://39.100.147.44:30005/quoted/list" ,//url
             async : true,//是否异步请求
             contentType : "application/json;charset=UTF-8",
             success: function (result) {
@@ -1302,7 +1302,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002/quoted/update" ,//url
+            url: "http://39.100.147.44:30005/quoted/update" ,//url
             contentType : "application/json",
             data: JSON.stringify(priceData),
             success: function (result) {

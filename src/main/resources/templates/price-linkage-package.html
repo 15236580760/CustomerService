@@ -15,7 +15,7 @@
         $.ajax({
             type: "GET",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002//gloryServer/list" ,//url
+            url: "http://39.100.147.44:30005/gloryServer/list" ,//url
             async : false,//是否异步请求
             contentType : "application/json;charset=UTF-8",
             success: function (result) {
@@ -49,7 +49,7 @@
         $.ajax({
             type: "GET",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002/combo/list" ,//url
+            url: "http://39.100.147.44:30005/combo/list" ,//url
             async : false,//是否异步请求
             contentType : "application/json;charset=UTF-8",
             success: function (result) {
@@ -104,7 +104,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002/gloryServer/update" ,//url
+            url: "http://39.100.147.44:30005/gloryServer/update" ,//url
             contentType : "application/json",
             data: JSON.stringify(linkageData),
             success: function (result) {
@@ -156,7 +156,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30002/combo/update" ,//url
+            url: "http://39.100.147.44:30005/combo/update" ,//url
             contentType : "application/json",
             data: JSON.stringify(mealData),
             success: function (result) {
