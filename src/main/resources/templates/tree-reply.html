@@ -8,19 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
 </head>
 <body>
-<div style="float: right; margin-right: 100px">
-    <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked" onclick="insertRootData()">添加根节点数据</button>
-    <input type="text" id="rootDataId">
-    <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked" onclick="refresh()">刷新页面</button>
+<div>
+    <div style="float: right; margin-right: 100px">
+        <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked" onclick="insertRootData()">添加根节点数据</button>
+        <input type="text" id="rootDataId">
+        <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked" onclick="refresh()">刷新页面</button>
 
-</div>
-<div style="float: left; margin-left: 100px">
-    <div class="layui-col-md3">
-        <div id="replyTree" class="demo-tree demo-tree-box" style="margin-left: 100px; height: 300px;"></div>
+    </div>
+    <div style="float: left; margin-left: 100px">
+        <div class="layui-col-md3">
+            <div id="replyTree" class="demo-tree demo-tree-box" style="margin-left: 100px;"></div>
+        </div>
     </div>
 </div>
+
+<hr>
+<br>
+<div>
+    <div>---------------孙氏网游专营店---------------</div>
+    <div>---------------孙氏网游专营店---------------</div>
+    <div>---------------孙氏网游专营店---------------</div>
+    <div>---------------孙氏网游专营店---------------</div>
+    <div>---------------孙氏网游专营店---------------</div>
+    <div>---------------孙氏网游专营店---------------</div>
+</div>
+<hr>
+<br>
+
 
 <script src="../static/layui/layui.js"></script>
 
@@ -40,7 +57,7 @@
             type: "post",
             async:false,
             dataType: 'json',
-            url: "http://39.100.147.44:30005/treemenu/getAllMenusJson",
+            url:__apiRoot + "/treemenu/getAllMenusJson",
             xhrFields: {
                 withCredentials: false
             },
@@ -151,7 +168,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30005/treemenu/saveOnePrivilege" ,//url
+            url: __apiRoot + "/treemenu/saveOnePrivilege" ,//url
             contentType : "application/json",
             data: JSON.stringify(saveData),
             success: function (result) {
@@ -174,7 +191,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30005/treemenu/deleteOnePrivilege" ,//url
+            url: __apiRoot + "/treemenu/deleteOnePrivilege" ,//url
             contentType : "application/json",
             data: JSON.stringify(deleteData),
             success: function (result) {
@@ -198,7 +215,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30005/shortword/deleteShortWordByTypeId" ,//url
+            url: __apiRoot + "/shortword/deleteShortWordByTypeId" ,//url
             contentType : "application/json",
             data: JSON.stringify(deleteDataByTypeId),
             success: function (result) {

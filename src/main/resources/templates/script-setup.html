@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>话术设置</title>
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
 </head>
 <body>
 
@@ -14,7 +15,7 @@
         $.ajax({
             type: "GET",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30005/speechcraft/list" ,//url
+            url: __apiRoot + "/speechcraft/list" ,//url
             async : false,//是否异步请求
             contentType : "application/json;charset=UTF-8",
             success: function (result) {
@@ -45,7 +46,7 @@
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "http://39.100.147.44:30005/speechcraft/update" ,//url
+            url: __apiRoot + "/speechcraft/update" ,//url
             data: JSON.stringify(setupData),
 
             contentType : "application/json;charset=UTF-8",
@@ -67,7 +68,7 @@
 </script>
 
 <div class="tab-content" id="fifthDiv">
-    <form action="http://39.100.147.44:30005/speechicraft/update" method="post" name="dataFormFive" id="saveQuoteSpeechTechniqueFrom">
+    <form method="post" name="dataFormFive" id="saveQuoteSpeechTechniqueFrom">
 
         <div style="padding:20px 0 0 20px;">
             <div class="mingwenTitle">话术设置</div>
