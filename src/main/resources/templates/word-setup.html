@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优惠话术页面设置</title>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+</head>
+<body>
+
+<div  class="layui-form-item" style="margin-top: 50px">
+    <label class="layui-form-label" style="width: 150px">请选择套餐</label>
+    <div>
+        <select id="comboTypeId"  lay-verify="required">
+            <option selected="selected"></option>
+        </select>
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label" style="width: 150px">优惠价格</label>
+    <div class="layui-input-block">
+        <input type="text" style="width: 150px" id="priceId" name="username" placeholder="请输入优惠价格" class="layui-input">
+    </div>
+</div>
+
+<div class="layui-form-item layui-form-text">
+    <label class="layui-form-label" style="width: 150px">话术模板设置</label>
+    <div class="layui-input-block">
+        <p>说明：输入套餐名则输入#，输入优惠价格则输入@，优惠后的总价则输入￥。总价最后由前端生成，所以这里暂时显示为￥</p>
+        <textarea id="areaId" placeholder="请输入内容" style="width: 400px" class="layui-textarea" name="desc"></textarea>
+    </div>
+</div>
+
+<div class="layui-form-item layui-form-text">
+    <label class="layui-form-label" style="width: 150px">话术最终展示</label>
+    <div class="layui-input-block">
+        <textarea id="finalTextId" style="width: 400px" readonly="true" class="layui-textarea"></textarea>
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <div class="layui-input-block">
+        <button type="button" class="layui-btn layui-btn-normal" onclick="assignmentId()">生成话术模板</button>
+        <button type="button" class="layui-btn" onclick="saveId()">保存</button>
+    </div>
+</div>
+
+
+<script src="/static/layui/layui.js"></script>
+
+<script type="text/javascript">
+
+    var aa ;
+
+    // 获取优惠话术接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: __apiRoot + "/wordSetup/findWordSetup" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (data) {
+                if (200 == data.code) {
+
+                    $("#areaId").get(0).value = data.data[0].word;
+                    $("#comboTypeId").get(0).value = data.data[0].pname;
+                    $("#priceId").get(0).value = data.data[0].price;
+
+                }
+
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    });
+
+
+    // 获取套餐设置接口数据
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: __apiRoot + "/combo/list" ,//url
+            async : false,//是否异步请求
+            contentType : "application/json;charset=UTF-8",
+            success: function (data) {
+
+                if (data.msg == "成功") {
+
+                    $.each(data.data, function (index, item) {
+                        $('#comboTypeId').append(new Option(item.comboName));// 下拉菜单里添加元素
+                    });
+                    layui.form.render("select");
+
+                }
+
+            },
+            error : function() {
+                alert("获取数据失败！");
+
+            }
+
+        });
+    });
+
+    // 获取套餐，优惠价格，替换到话术中
+    function assignmentId() {
+        var areaText = $("#areaId").val(); // 话术
+        var comboText = $("#comboTypeId").val(); // 套餐
+        var priceInt = $("#priceId").val(); // 优惠价格
+        // 替换套餐和优惠价格
+        // 约定 前端套餐符号为：#，价格符号为：￥
+        var saveText = areaText.replace(/#/g, comboText).replace(/@/g, priceInt);
+        // 给新文本赋值最终生成的话术
+        $("#finalTextId").val(saveText);
+    }
+
+    // 保存数据
+    function saveId() {
+
+        var areaText = $("#finalTextId").val(); // 话术
+        var comboText = $("#comboTypeId").val(); // 套餐
+        var priceInt = $("#priceId").val(); // 优惠价格
+
+        // 校验输入框
+        if (typeof comboText == "undefined" || comboText == null || comboText == "") {
+            s.layer.msg("没有指定套餐！");
+            return;
+        } else if (typeof areaText == "undefined" || areaText == null || areaText == "") {
+            s.layer.msg("没有生成话术模板！");
+            return;
+        } else if (!isNumber(priceInt)) {
+            s.layer.msg("价格不是数字，请输入正确价格！");
+            return;
+        }
+
+        var saveData = {
+            "id":1,// 目前只有一条优惠话术，只做更新
+            "pname":comboText,
+            "word":areaText,
+            "price":priceInt
+        };
+
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: __apiRoot + "/wordSetup/saveOneWordSetup" ,//url
+            contentType : "application/json",
+            data: JSON.stringify(saveData),
+            success: function (result) {
+
+                if (200 == result.code) {
+                    s.layer.msg("保存成功");
+                };
+            },
+            error : function() {
+                alert("保存失败");
+
+            }
+
+        });
+    }
+
+</script>
+
+</body>
+</html>
